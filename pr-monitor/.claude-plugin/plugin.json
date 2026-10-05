@@ -1,0 +1,32 @@
+{
+  "name": "pr-monitor",
+  "version": "0.1.0",
+  "description": "Pane that monitors a repository's open pull requests, merges the ones you mark when they're green, and asks Claude to resolve conflicts in an order that avoids new ones",
+  "userConfig": {
+    "mergeMethod": {
+      "type": "string",
+      "title": "Merge method",
+      "description": "How auto-merge merges a pull request",
+      "default": "squash",
+      "options": ["squash", "merge", "rebase"]
+    },
+    "pollSeconds": {
+      "type": "number",
+      "title": "Refresh every (seconds)",
+      "description": "How often pull request state is read from GitHub (minimum 20)",
+      "default": 60
+    },
+    "autoOpen": {
+      "type": "boolean",
+      "title": "Open the pane at session start",
+      "description": "Opens the monitor when a session starts in a repository with open pull requests",
+      "default": true
+    },
+    "maxResolveAttempts": {
+      "type": "number",
+      "title": "Conflict resolution attempts",
+      "description": "Automatic resolution attempts per pull request before it's handed back to you",
+      "default": 2
+    }
+  }
+}
