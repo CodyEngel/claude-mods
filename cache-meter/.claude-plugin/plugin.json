@@ -1,0 +1,29 @@
+{
+  "name": "cache-meter",
+  "version": "0.1.0",
+  "description": "Band above the prompt showing prompt-cache time left, context used, and a Compact button",
+  "userConfig": {
+    "cacheTtl": {
+      "type": "string",
+      "title": "Prompt cache TTL",
+      "description": "How long the API keeps this session's prompt cache after the last request (1h on subscription plans, 5m on API keys or usage overage)",
+      "default": "1h",
+      "options": [
+        "1h",
+        "5m"
+      ]
+    },
+    "warnMinutes": {
+      "type": "number",
+      "title": "Warn when this many minutes remain",
+      "description": "Shows a toast once when the cache is about to expire",
+      "default": 5
+    },
+    "keepWarmCutoffHours": {
+      "type": "number",
+      "title": "Keep warm: stop after this many idle hours",
+      "description": "Keep warm turns itself off once the session has had no turns for this long",
+      "default": 8
+    }
+  }
+}
